@@ -5,7 +5,6 @@ class Institute {
 + getName(): String
 + getStudent(): List
 + addStudent(student: Student)
-+ getRequest(): String 
 + getLecturers(): List 
 + addLecturer(lecturer: Lecturer) 
 } 
@@ -19,6 +18,8 @@ class Course{
 + removeStudent(student: Student)
 + getStudent(): List
 + getNumberOfStudent(): int 
++ getLecturer()
++ assignLecture()
 } 
 
 class Lecturer { 
@@ -28,7 +29,9 @@ class Lecturer {
 + Lecturer(name: String, emailAddress: String, specialization: String)
 + getSpecialization(): String
 + getName(): String
-+ getEmailAddress() 
++ getEmailAddress()
++ getCourse()
++ addCorse()
 } 
 
 class Student {
@@ -42,7 +45,9 @@ class Student {
 + getCorses(): List<Course>
 }
 
-Student --> Course
-Institute --> Course
-Lecturer --> Institute
+Institute o--> Student
+Institute o--> Course
+Institute o--> Lecturer
+Student - Course
+Course - Lecturer
 @enduml
